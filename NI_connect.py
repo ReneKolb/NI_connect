@@ -120,52 +120,6 @@ class NI_Connect():
                 self.client_connection.close()
                 self.NI_device.shutdown()       
 
-        # while not do_close:
-        #     try:
-        #         command = raw_input(">")
-        #     except (KeyboardInterrupt, SystemExit):
-        #         #due to Strg+C interrupt...
-        #         command = ""
-        #         do_close = True
-        #     except Exception as ex:
-        #         raise
-
-        #     if "close" in command:
-        #         do_close = True
-        #         print("closing...")
-        #         self.client_connection.close()
-        #     elif "connect" in command:
-        #         cmd = command.split()
-        #         if len(cmd) == 1: #only 'connect'
-        #             print('Too view arguments', sys.stderr)
-        #         elif len(cmd) == 2: #'connect host:port'
-        #             args = cmd[1].split(':')
-        #             if len(args) == 1:
-        #                 host = args[0]
-        #                 port = DEFAULT_PORT
-        #             elif len(args) == 2:
-        #                 host = args[0]
-        #                 port = int(args[1])
-        #             else:
-        #                 host = None
-        #                 port = None
-        #                 print("Wrong usage.",sys.stderr)
-        #             self.client_connection.connect((host, port))
-        #         else:
-        #             print("Wrong usage. 'connect host:port", sys.stderr)
-        #     elif "test" in command:
-        #         spl = command.split()
-        #         fpv = {}
-        #         for i in range(8):
-        #             fpv['ao%d'%i] = 0
-        #         fpv['ao0'] = float(spl[1])
-        #         self.NI_device.program_manual(fpv)
-        #         print("programmed.")
-        #     elif not do_close:
-        #         print('Unkown command: "'+str(command)+'"')
-
-    
-
 if __name__ == "__main__":
     system("title NI-Connect") #set title
     main(sys.argv[1:])
